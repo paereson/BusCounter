@@ -21,7 +21,7 @@ struct ContentView: View {
                 .blur(radius: 4.0)
             
             VStack {
-                Text("Grudzień 2021")
+                Text("December 2021")
                     .font(.system(size: 42))
                     .bold()
                     .foregroundColor(.white)
@@ -29,7 +29,7 @@ struct ContentView: View {
                 HStack {
                     /// Left buttons stack
                     VStack {
-                        Text("Ilość: \($viewModel.normalTickets.wrappedValue)" as String)
+                        Text("Count: \($viewModel.normalTickets.wrappedValue)" as String)
                             .font(.system(size: 26))
                             .foregroundColor(.white)
                             .bold()
@@ -62,7 +62,7 @@ struct ContentView: View {
                     
                     /// Right buttons stack
                     VStack {
-                        Text("Ilość: \($viewModel.quaterTickets.wrappedValue)" as String)
+                        Text("Count: \($viewModel.quaterTickets.wrappedValue)" as String)
                             .font(.system(size: 26))
                             .foregroundColor(.white)
                             .bold()
