@@ -9,58 +9,97 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    
+    @ObservedObject var viewModel = ContentViewModel()
+    
     var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-            }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        ZStack {
+            Image("busBackground")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea(.all, edges: .all)
+                .blur(radius: 4.0)
+            
+            VStack {
+                Text("Grudzień 2021")
+                    .font(.system(size: 42))
+                    .bold()
+                    .foregroundColor(.white)
+                
+                HStack {
+                    /// Left buttons stack
+                    VStack {
+                        Text("Ilość: \($viewModel.normalTickets.wrappedValue)" as String)
+                            .font(.system(size: 26))
+                            .foregroundColor(.white)
+                            .bold()
+                        
+                        Button {
+                            viewModel.addTicket(type: .normal)
+                        } label: {
+                            Text("Normal")
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(Color.black)
+                                .background(Color.green)
+                                .clipShape(Circle())
+                        }
+                        .foregroundColor(.black)
+                        .padding()
+                        
+                        Button {
+                            if viewModel.normalTickets > 0 {
+                                viewModel.subtractTicket(type: .normal)
+                            }
+                        } label: {
+                            Text("-")
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.black)
+                                .background(Color.red)
+                                .clipShape(Circle())
+                        }
+                        .foregroundColor(.black)
+                    }
+                    
+                    /// Right buttons stack
+                    VStack {
+                        Text("Ilość: \($viewModel.quaterTickets.wrappedValue)" as String)
+                            .font(.system(size: 26))
+                            .foregroundColor(.white)
+                            .bold()
+                        
+                        Button {
+                            viewModel.addTicket(type: .quater)
+                        } label: {
+                            Text("15 min")
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(Color.black)
+                                .background(Color.yellow)
+                                .clipShape(Circle())
+                        }
+                        .foregroundColor(.black)
+                        .padding()
+                        
+                        Button {
+                            if viewModel.quaterTickets > 0 {
+                                viewModel.subtractTicket(type: .quater)
+                            }
+                        } label: {
+                            Text("-")
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.black)
+                                .background(Color.red)
+                                .clipShape(Circle())
+                        }
+                        .foregroundColor(.black)
+                    }
+                    
+                    
+                }
+                .padding()
+                
+                Text("Saved money: \(String(format: "%.2f", $viewModel.savedMoney.wrappedValue)) pln")
+                    .foregroundColor(.white)
+                    .bold()
             }
         }
     }

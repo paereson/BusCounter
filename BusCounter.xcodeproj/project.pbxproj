@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18519FC82761DBB9001A12D7 /* DefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18519FC72761DBB9001A12D7 /* DefaultsService.swift */; };
+		18519FD32761E44B001A12D7 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18519FD22761E44B001A12D7 /* ContentViewModel.swift */; };
+		18519FDB2763A986001A12D7 /* TicketsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18519FDA2763A986001A12D7 /* TicketsModel.swift */; };
+		18519FE02763ACB0001A12D7 /* TicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18519FDF2763ACB0001A12D7 /* TicketType.swift */; };
+		18519FE82763BCC4001A12D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18519FE72763BCC4001A12D7 /* LaunchScreen.storyboard */; };
 		189FF7712761DA3A0007A810 /* BusCounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FF7702761DA3A0007A810 /* BusCounterApp.swift */; };
 		189FF7732761DA3A0007A810 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FF7722761DA3A0007A810 /* ContentView.swift */; };
 		189FF7752761DA3B0007A810 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189FF7742761DA3B0007A810 /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18519FC72761DBB9001A12D7 /* DefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsService.swift; sourceTree = "<group>"; };
+		18519FD22761E44B001A12D7 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		18519FDA2763A986001A12D7 /* TicketsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsModel.swift; sourceTree = "<group>"; };
+		18519FDF2763ACB0001A12D7 /* TicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketType.swift; sourceTree = "<group>"; };
+		18519FE72763BCC4001A12D7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		189FF76D2761DA3A0007A810 /* BusCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		189FF7702761DA3A0007A810 /* BusCounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCounterApp.swift; sourceTree = "<group>"; };
 		189FF7722761DA3A0007A810 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,12 +110,17 @@
 			isa = PBXGroup;
 			children = (
 				189FF7702761DA3A0007A810 /* BusCounterApp.swift */,
+				18519FDF2763ACB0001A12D7 /* TicketType.swift */,
 				189FF7722761DA3A0007A810 /* ContentView.swift */,
+				18519FD22761E44B001A12D7 /* ContentViewModel.swift */,
+				18519FC72761DBB9001A12D7 /* DefaultsService.swift */,
+				18519FDA2763A986001A12D7 /* TicketsModel.swift */,
 				189FF7742761DA3B0007A810 /* Assets.xcassets */,
 				189FF7792761DA3B0007A810 /* Persistence.swift */,
 				189FF77E2761DA3B0007A810 /* Info.plist */,
 				189FF77B2761DA3B0007A810 /* BusCounter.xcdatamodeld */,
 				189FF7762761DA3B0007A810 /* Preview Content */,
+				18519FE72763BCC4001A12D7 /* LaunchScreen.storyboard */,
 			);
 			path = BusCounter;
 			sourceTree = "<group>";
@@ -239,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18519FE82763BCC4001A12D7 /* LaunchScreen.storyboard in Resources */,
 				189FF7782761DA3B0007A810 /* Preview Assets.xcassets in Resources */,
 				189FF7752761DA3B0007A810 /* Assets.xcassets in Resources */,
 			);
@@ -266,9 +282,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				189FF77A2761DA3B0007A810 /* Persistence.swift in Sources */,
+				18519FE02763ACB0001A12D7 /* TicketType.swift in Sources */,
+				18519FC82761DBB9001A12D7 /* DefaultsService.swift in Sources */,
+				18519FD32761E44B001A12D7 /* ContentViewModel.swift in Sources */,
 				189FF77D2761DA3B0007A810 /* BusCounter.xcdatamodeld in Sources */,
 				189FF7732761DA3A0007A810 /* ContentView.swift in Sources */,
 				189FF7712761DA3A0007A810 /* BusCounterApp.swift in Sources */,
+				18519FDB2763A986001A12D7 /* TicketsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -410,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
